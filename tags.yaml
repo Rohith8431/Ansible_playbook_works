@@ -1,0 +1,11 @@
+--- # Tags playbook
+- hosts: tutes
+  tasks:
+   - name: enter your name
+     raw: echo "rohith" > /home/ec2-user/rohith.log
+     tags:
+      - firstname
+   - name: designation
+     raw: echo "devops_engineer" > /home/ec2-user/rohith.log
+     tags:
+       - role
