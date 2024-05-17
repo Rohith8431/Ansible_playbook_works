@@ -1,0 +1,12 @@
+#Calling the variable, second method
+---
+- hosts: [tutes]
+  become: true
+  vars_files:
+   - var_data.yaml
+  tasks:
+   - name: pkg "{{gum}}" installation
+     yum: pkg="{{gum}}" state=present
+   - name: service "{{gum}}" start
+     service: name="{{gum}}" state=started
+
