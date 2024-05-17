@@ -1,0 +1,12 @@
+#Calling the variable, one method
+---
+- hosts: [tutes]
+  become: true
+  vars:
+   - ro: httpd
+  tasks:
+   - name: pkg "{{ro}}" installation 
+     yum: pkg="{{ro}}" state=present
+   - name: service "{{ro}}" start
+     service: name="{{ro}}" state=started
+
