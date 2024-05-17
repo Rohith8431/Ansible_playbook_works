@@ -1,0 +1,16 @@
+ #this yaml code for run_once
+---
+- hosts: tutes
+  run_once: true
+  become: true
+  vars_prompt:
+   - name: ben
+     prompt: please enter the pkg name to install
+  tasks:
+   - name: pkg "{{ben}}" installation
+     yum: pkg="{{ben}}" state=present
+     notify: service start
+  handlers:
+   - name: service start
+     service: name="{{ben}}" state=started
+
