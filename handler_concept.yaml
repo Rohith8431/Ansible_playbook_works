@@ -1,0 +1,14 @@
+#this yaml code for handlers
+---
+- hosts: tutes
+  become: true
+  vars_prompt:
+   - name: ben
+     prompt: please enter the pkg name to install
+  tasks:
+   - name: pkg "{{ben}}" installation
+     yum: pkg="{{ben}}" state=present
+     notify: service start
+  handlers:
+   - name: service start
+     service: name="{{ben}}" state=started
