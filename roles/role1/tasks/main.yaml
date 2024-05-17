@@ -1,0 +1,2 @@
+- name: pkg "{{ro}}" installation
+  yum: pkg="{{ro}}" state=present
