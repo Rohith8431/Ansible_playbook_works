@@ -1,0 +1,13 @@
+#Calling the variable, third method
+---
+- hosts: [tutes]
+  become: true
+  vars_prompt:
+   - name: deneil
+     prompt: please enter the pkg name to install
+  tasks:
+   - name: pkg "{{deneil}}" installation
+     yum: pkg="{{deneil}}" state=present
+   - name: service "{{deneil}}" start
+     service: name="{{deneil}}" state=started
+
