@@ -1,0 +1,14 @@
+--- # outlining to my playbook
+- hosts: tutes
+  become: true
+  tasks:
+   - name: Display Date&Time For Begining of Playbook
+     raw: /usr/bin/date  > /home/ec2-user/begin_playbook_timestamp.log
+   - name: Install ftp
+     yum: pkg=ftp state=present
+   - name: install telnet
+     yum: pkg=telnet state=present 
+   - name: moving logs
+     raw: yum list installed > /home/ec2-user/telnet_installed.log
+   - name: Display Date&Time For Ending of Playbook
+     raw: /usr/bin/date  > /home/ec2-user/end_playbook_timestamp.log
