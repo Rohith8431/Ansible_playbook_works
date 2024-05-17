@@ -1,0 +1,11 @@
+#wait_for using path method
+---
+- hosts: tutes
+  become: true
+  tasks:
+    - name: install httpd package
+      yum: pkg=httpd state=latest
+    - name: wait for dummy file to create.
+      wait_for:
+         path: /home/ec2-user/dummy 
+
