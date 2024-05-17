@@ -1,0 +1,9 @@
+#this yaml code for include statement
+---
+- hosts: [tutes]
+  become: true
+  vars:
+   - name: rohith
+  tasks:
+   - include_tasks: task_data.yaml
+
