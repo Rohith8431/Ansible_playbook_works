@@ -1,0 +1,11 @@
+#This is sample yaml code
+---
+- hosts: [tutes]
+  become: true
+  vars: 
+   - name: rohith
+  tasks:
+   - name: pkg installation
+     yum: pkg=vsftpd state=present
+   - name: service to start
+     service: name=vsftpd state=started
